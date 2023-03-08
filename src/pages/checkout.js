@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import CheckoutItem from "../components/checkoutItem"
 import Payment from "../components/payment"
 import {
+  getItems,
   addQuantity,
   removeQuantity,
   removeCartItem,
@@ -24,6 +25,7 @@ function Checkout() {
   )
 
   useEffect(() => {
+    dispatch(getItems("all"))
     dispatch(calculateSubTotal())
     checkOffer()
   }, [cartItems])

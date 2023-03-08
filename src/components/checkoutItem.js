@@ -18,7 +18,7 @@ function CheckoutItem({
         <div className="d-flex flex-row align-items-center col-7">
           <img src={cartItem?.img} width="80" alt="" className="me-4" />
           <div>
-            <h5 className="box-product-heading mb_20px">{cartItem.name}</h5>
+            <h5 className="box-product-heading mb_20px">{cartItem?.name}</h5>
             <p className="box-product-detail mb-0">
               Product Type: {cartItem?.type}
             </p>
