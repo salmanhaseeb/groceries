@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
+
+.groceries {
+  font-family: "Almarai";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 27px;
+  color: #000000;
+}
+
+.search-main {
+  border: 1px solid #bebebe80;
+  background: #ffffff;
+  box-shadow: 5px 5px 20px rgba(181, 181, 181, 0.2);
+  border-radius: 30px;
+  height: 80px;
+}
+
+.search-input,
+.search-input::placeholder,
+.search-input:focus-visible {
+  font-family: "Almarai";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 27px;
+  color: #949494;
+  outline: 0;
+  height: 100%;
+}
+
+.nav-icon-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* tabs style */
+
+.tabs-main .nav-pills .nav-link.active,
+.tabs-main .nav-pills .show > .nav-link,
+.tabs-main .nav-pills .nav-link {
+  width: 187px;
+  height: 58px;
+  background: #ffffff;
+  border: 1px solid rgba(190, 190, 190, 0.5);
+  box-shadow: 5px 5px 20px rgba(181, 181, 181, 0.2);
+  border-radius: 30px;
+  font-family: "Almarai";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 27px;
+  color: #474747;
+}
+
+.tabs-main .nav-pills .nav-link {
+  margin-right: 26px;
+}
+
+.tabs-main .nav-pills .nav-item:last-child .nav-link {
+  margin-right: 0;
+}
+
+.trending-items {
+  font-family: "Almarai";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 36px;
+  color: #474747;
+}
+
+.box-main {
+}
+
+.box {
+  width: 522px;
+  background: #ffffff;
+  box-shadow: 5px 5px 20px rgba(133, 133, 133, 0.2);
+  border-radius: 30px;
+  margin: 0 85px 94px 0 !important;
+}
+
+.product-details {
+  padding: 25px;
+  padding-left: 0 !important;
+}
+
+.box-product-heading {
+  font-family: "Almarai";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 22px;
+  color: #474747;
+}
+
+.box-product-detail {
+  font-family: "Almarai";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: #474747;
+  margin-bottom: 88px;
+}
+
+.availability-status {
+  background: rgba(255, 147, 69, 0.8);
+  border: 1px solid rgba(255, 148, 70, 0.5);
+  box-shadow: 5px 5px 20px rgba(255, 210, 178, 0.5);
+  border-radius: 10px;
+  color: #fff;
+  margin-bottom: 52px;
+  max-width: 98px;
+  text-align: center;
+}
+
+.green {
+  background: rgba(0, 167, 17, 0.5) !important;
+  border: 1px solid rgba(0, 202, 20, 0.5) !important;
+  box-shadow: 5px 5px 20px rgba(196, 255, 202, 0.5);
+  border-radius: 10px;
+}
+
+.product-price {
+  font-family: "Almarai";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 22px;
+  color: #474747;
+}
+
+.checkout-bar {
+  /* width: 522px; */
+  background: #ffffff;
+  box-shadow: 5px 5px 20px rgba(133, 133, 133, 0.2);
+  border-radius: 30px;
+  margin: 0 85px 94px 0;
+}
+
+.mb_20px {
+  margin-bottom: 20px;
+}
+
+.bar-product-price {
+  font-family: "Almarai";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+  text-align: right;
+  color: #82828b;
+}
+
+.btn-close {
+  background: url(./img/close.png);
+  min-width: 24px;
+  min-height: 24px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0 !important;
+  opacity: 1;
+}
+
+.checkout-final-amount {
+  font-family: "Almarai";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 22px;
+  text-align: right;
+  color: #82828b;
+}
+
+.checkout-btn {
+  background: #7fd287;
+  border-radius: 8px;
+  font-family: "Almarai";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.bg_red {
+  width: 24px;
+  height: 24px;
+  background: #e86f6f;
+  border-radius: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+.bg_blue {
+  width: 24px;
+  height: 24px;
+  background: rgba(0, 133, 255, 0.7);
+  border-radius: 100%;
+  text-align: center;
+  color: #fff;
+}
+.text_decoration {
+  text-decoration: none !important;
+}
