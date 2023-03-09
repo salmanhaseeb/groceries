@@ -76,11 +76,15 @@
 }
 
 .box {
-  width: 522px;
+  width: 518px;
   background: #ffffff;
   box-shadow: 5px 5px 20px rgba(133, 133, 133, 0.2);
   border-radius: 30px;
-  margin: 0 85px 94px 0 !important;
+  margin-bottom: 94px !important;
+}
+
+.box:nth-child(odd) {
+  margin-right: 85px !important;
 }
 
 .product-details {
@@ -136,10 +140,10 @@
 
 .checkout-bar {
   /* width: 522px; */
-  background: #ffffff;
-  box-shadow: 5px 5px 20px rgba(133, 133, 133, 0.2);
-  border-radius: 30px;
-  margin: 0 85px 94px 0;
+  background: #ffffff !important;
+  box-shadow: 5px 5px 20px rgba(133, 133, 133, 0.2) !important;
+  border-radius: 30px !important;
+  margin: 0 85px 94px 0 !important;
 }
 
 .mb_20px {

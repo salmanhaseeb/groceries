@@ -50,9 +50,15 @@ function CheckoutItem({
             )}
           </div>
           {!offer && (
-            <p className="availability-status mb-0">
-              Only {cartItem?.available} left
-            </p>
+            <>
+              {cartItem?.available > 5 ? (
+                <p className="availability-status mb-0 green">Available</p>
+              ) : (
+                <p className="availability-status mb-0">
+                  Only {cartItem?.available} left
+                </p>
+              )}
+            </>
           )}
         </div>
         <div className="col-2">

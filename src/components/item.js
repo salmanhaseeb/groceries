@@ -26,10 +26,16 @@ function Item({
       <div className="col-7 d-flex justify-content-center align-items-center">
         <img src={item?.img} width="200" alt="" />
       </div>
-      <div className="col product-details">
-        <h5 className="box-product-heading">{item?.name}</h5>
-        <p className="box-product-detail">{truncate(item?.description)}</p>
-        <p className="availability-status">Only {item?.available} left</p>
+      <div className="col product-details d-flex flex-column justify-content-between">
+        <div>
+          <h5 className="box-product-heading">{item?.name}</h5>
+          <p className="box-product-detail">{truncate(item?.description)}</p>
+          {item?.available > 5 ? (
+            <p className="availability-status green">Available</p>
+          ) : (
+            <p className="availability-status">Only {item?.available} left</p>
+          )}
+        </div>
         <div className="d-flex flex-row justify-content-between align-items-center">
           <p className="product-price mb-0">{item?.price}</p>
           <div>
