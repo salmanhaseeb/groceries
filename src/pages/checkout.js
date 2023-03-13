@@ -8,18 +8,22 @@ import {
   removeQuantity,
   removeCartItem,
   calculateSubTotal,
+  DiscountAmount,
 } from "./../redux/itemsSlice"
 
 function Checkout() {
   const dispatch = useDispatch()
   const [offerItem, setOfferItem] = useState({
     cocacla: 0,
+    cocacolaPrice: 0,
     coffee: 0,
+    coffeePrice: 0,
   })
   const offer = {
     cocacla: 6,
     croissants: 3,
   }
+
   const { items, cartItems, subTotal, discount } = useSelector(
     (state) => state.items
   )
@@ -33,12 +37,22 @@ function Checkout() {
   const checkOffer = () => {
     let cocaCola = cartItems.find((item) => item.name === "Coca-Cola")
     let croissants = cartItems.find((item) => item.name === "Croissants")
+    let coffee = items.find((item) => item.name === "Coffee")
     let updatedOffer = {
       cocacla: parseInt(cocaCola?.quantity / offer?.cocacla || 0),
+      cocacolaPrice: parseFloat(cocaCola?.price.split("£")[1]),
       coffee: parseInt(croissants?.quantity / offer?.croissants || 0),
+      coffeePrice: parseFloat(coffee?.price.split("£")[1]),
     }
-
+    calculateTotalDiscount(updatedOffer)
     setOfferItem(updatedOffer)
+  }
+  const calculateTotalDiscount = (discountOffer) => {
+    let cocaclaDiscount = discountOffer?.cocacla * discountOffer?.cocacolaPrice
+    let coffeeDiscount = discountOffer?.coffee * discountOffer?.coffeePrice
+    let totalDiscount = cocaclaDiscount + coffeeDiscount || 0
+    debugger
+    dispatch(DiscountAmount(totalDiscount))
   }
 
   return (
@@ -50,6 +64,8 @@ function Checkout() {
               return (
                 <CheckoutItem
                   cartItem={cartItem}
+                  offerItem={offerItem}
+                  items={items}
                   key={index}
                   addQuantity={() => {
                     dispatch(addQuantity(cartItem?.name)).then(() => {
@@ -98,7 +114,9 @@ function Checkout() {
             <h5 className="box-product-heading mb-0">Subtotal</h5>
           </div>
           <div className="col">
-            <p className="checkout-final-amount mb-0">£{subTotal.toFixed(2)}</p>
+            <p className="checkout-final-amount mb-0">
+              £{(subTotal + discount).toFixed(2)}
+            </p>
           </div>
           <div className="col"></div>
         </div>
@@ -124,9 +142,7 @@ function Checkout() {
             <h5 className="box-product-heading mb-0">Total</h5>
           </div>
           <div className="col">
-            <p className="checkout-final-amount mb-0">
-              £{(subTotal - discount).toFixed(2)}
-            </p>
+            <p className="checkout-final-amount mb-0">£{subTotal.toFixed(2)}</p>
           </div>
           <div className="col text-end">
             <button
@@ -140,7 +156,7 @@ function Checkout() {
         </div>
       </div>
       <hr className="w-75" />
-      <Payment totalAmount={`£${(subTotal - discount).toFixed(2)}`} />
+      <Payment totalAmount={`£${subTotal.toFixed(2)}`} />
     </div>
   )
 }

@@ -53,6 +53,7 @@
   font-size: 24px;
   line-height: 27px;
   color: #474747;
+  margin-bottom: 12px;
 }
 
 .tabs-main .nav-pills .nav-link {
@@ -211,4 +212,28 @@
 }
 .text_decoration {
   text-decoration: none !important;
+}
+
+@media screen and (max-width: 767px) {
+  .text_decoration {
+    margin-bottom: 12px;
+  }
+  .search-main {
+    margin-bottom: 25px;
+  }
+  .nav-icon-list li {
+    margin-bottom: 12px;
+  }
+  .box:nth-child(odd) {
+    margin-right: 0 !important;
+  }
+  .box {
+    width: 100% !important;
+  }
+  .product-details {
+    padding-left: 15px !important;
+  }
+  .checkout-bar.w-75 {
+    width: 100% !important;
+  }
 }

@@ -5,9 +5,11 @@ import Item from "./../components/item"
 import {
   getItems,
   addFavouriteItem,
+  addQuantity,
   removeFavouriteItem,
   addToCart,
   removeCartItem,
+  calculateSubTotal,
 } from "./../redux/itemsSlice"
 
 function Home() {
@@ -31,7 +33,7 @@ function Home() {
           aria-labelledby="all-items-tab"
         >
           <h3 className="trending-items mb-5">Trending Items</h3>
-          <div className="box-main d-flex flex-row flex-wrap">
+          <div className="box-main container-fluid d-flex flex-row flex-wrap">
             {filterItems.length > 0
               ? filterItems.map((item, index) => {
                   return (
@@ -51,6 +53,11 @@ function Home() {
                       }}
                       removeCartItem={() => {
                         dispatch(removeCartItem(item.name))
+                      }}
+                      addItemQuantity={() => {
+                        dispatch(addQuantity(item?.name)).then(() => {
+                          dispatch(calculateSubTotal())
+                        })
                       }}
                     />
                   )
@@ -74,6 +81,11 @@ function Home() {
                       }}
                       removeCartItem={() => {
                         dispatch(removeCartItem(item.name))
+                      }}
+                      addItemQuantity={() => {
+                        dispatch(addQuantity(item?.name)).then(() => {
+                          dispatch(calculateSubTotal())
+                        })
                       }}
                     />
                   )
