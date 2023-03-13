@@ -181,6 +181,24 @@ export const calculateSubTotal = createAsyncThunk(
   }
 )
 
+export const DiscountAmount = createAsyncThunk(
+  "items/DiscountAmount",
+  async (amount, thunkAPI) => {
+    try {
+      return amount
+    } catch (error) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString()
+
+      return thunkAPI.rejectWithValue(message)
+    }
+  }
+)
+
 export const itemsSlice = createSlice({
   name: "items",
   initialState,
@@ -295,6 +313,17 @@ export const itemsSlice = createSlice({
         state.subTotal = action.payload
       })
       .addCase(calculateSubTotal.rejected, (state, action) => {
+        state.isLoading = false
+        state.isError = true
+        state.message = action.payload
+      })
+      .addCase(DiscountAmount.pending, (state) => {})
+      .addCase(DiscountAmount.fulfilled, (state, action) => {
+        state.isLoading = false
+        state.isSuccess = true
+        state.discount = action.payload
+      })
+      .addCase(DiscountAmount.rejected, (state, action) => {
         state.isLoading = false
         state.isError = true
         state.message = action.payload

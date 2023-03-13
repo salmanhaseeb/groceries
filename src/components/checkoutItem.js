@@ -3,12 +3,28 @@ import Plus from "./../img/Plus.png"
 
 function CheckoutItem({
   cartItem,
+  offerItem,
+  items,
   addQuantity,
   removeQuantity,
   removeCartItem,
   offer = false,
   offerItemQuantity,
 }) {
+  const checkRemaining = () => {
+    let i = items?.find((citem) => cartItem.name === citem.name)
+    if (i) {
+      if (offerItem && cartItem === "Coca-Cola") {
+        return i.available - cartItem.quantity - offerItem?.cocacla
+      } else if (offerItem && cartItem === "Coffee") {
+        return i.available - cartItem.quantity - offerItem?.coffee
+      } else {
+        return i.available - cartItem.quantity
+      }
+    } else {
+      return i.available
+    }
+  }
   return (
     <div
       className="checkout-bar w-75 border-0 alert alert-warning alert-dismissible fade show pe-3  m-0 mb-4"
@@ -44,18 +60,22 @@ function CheckoutItem({
                 src={Plus}
                 alt=""
                 onClick={() => {
-                  addQuantity()
+                  checkRemaining() > 0 && addQuantity()
                 }}
               />
             )}
           </div>
           {!offer && (
             <>
-              {cartItem?.available > 5 ? (
+              {checkRemaining() > 5 ? (
                 <p className="availability-status mb-0 green">Available</p>
-              ) : (
+              ) : checkRemaining() > 0 ? (
                 <p className="availability-status mb-0">
-                  Only {cartItem?.available} left
+                  Only {checkRemaining()} left
+                </p>
+              ) : (
+                <p className="availability-status mb-0 bg-danger">
+                  No item left
                 </p>
               )}
             </>
@@ -67,12 +87,17 @@ function CheckoutItem({
           </p>
         </div>
         <div className="col-1 text-end">
-          <button
-            type="button"
-            className="btn-close position-relative"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          ></button>
+          {!offer && (
+            <button
+              type="button"
+              className="btn-close position-relative"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+              onClick={() => {
+                removeCartItem()
+              }}
+            ></button>
+          )}
         </div>
       </div>
     </div>
