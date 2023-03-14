@@ -51,7 +51,6 @@ function Checkout() {
     let cocaclaDiscount = discountOffer?.cocacla * discountOffer?.cocacolaPrice
     let coffeeDiscount = discountOffer?.coffee * discountOffer?.coffeePrice
     let totalDiscount = cocaclaDiscount + coffeeDiscount || 0
-    debugger
     dispatch(DiscountAmount(totalDiscount))
   }
 

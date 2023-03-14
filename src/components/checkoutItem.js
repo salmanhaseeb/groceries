@@ -17,12 +17,12 @@ function CheckoutItem({
       if (offerItem && cartItem === "Coca-Cola") {
         return i.available - cartItem.quantity - offerItem?.cocacla
       } else if (offerItem && cartItem === "Coffee") {
-        return i.available - cartItem.quantity - offerItem?.coffee
+        return i?.available - cartItem.quantity - offerItem?.coffee
       } else {
-        return i.available - cartItem.quantity
+        return i?.available - cartItem.quantity
       }
     } else {
-      return i.available
+      return i?.available
     }
   }
   return (
